@@ -1,9 +1,19 @@
 <html>
-  <head>
-    <title><%= title %></title>
-  </head>
+  <%- include("components/head", {title: title}) %>
   <body>
     <p>new Msg</p>
     <%- include("components/navbar", {links: links}) %>
+    <form class="message-container" method="POST" action="/new">
+      <h2>Add a new message</h2>
+      <div class="input-container">
+        <label for="author">Your name</label>
+        <input type="text" name="author" id="author">
+      </div>
+      <div class="input-container vertical">
+        <label for="message">Your Message</label>
+        <textarea name="message" id="message" rows="10"></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
   </body>
 </html>

@@ -4,6 +4,10 @@ const app = express();
 const indexRouter = require("./routes/indexRouter");
 const newMsgFormRouter = require("./routes/newMsgRouter");
 
+//parsing post request
+app.use(express.urlencoded({ extended: true })); // 👈 add this
+app.use(express.json());         
+
 //Links
 const links = [
   {href: "/", text: "Home"},
@@ -18,8 +22,8 @@ app.set("view engine", "ejs");
 const assetPath = path.join(__dirname, "public");
 app.use(express.static(assetPath));
 
-app.use("/", indexRouter);
 app.use("/new", newMsgFormRouter);
+app.use("/", indexRouter);
 
 const PORT = 3001;
 

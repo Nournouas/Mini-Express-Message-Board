@@ -3,6 +3,7 @@ const path = require("node:path");
 const app = express();
 const indexRouter = require("./routes/indexRouter");
 const newMsgFormRouter = require("./routes/newMsgRouter");
+const { body, validationResult } = require("express-validator")
 
 //parsing post request
 app.use(express.urlencoded({ extended: true })); // 👈 add this
@@ -28,6 +29,6 @@ app.use("/", indexRouter);
 const PORT = 3001;
 
 app.listen(PORT, (err)=>{
-  if (err) throw errl
+  if (err) throw err;
   console.log("running!")
 })

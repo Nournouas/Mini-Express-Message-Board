@@ -5,7 +5,7 @@ async function initDB(){
       CREATE TABLE IF NOT EXISTS messages(
         id SERIAL PRIMARY KEY,
         text VARCHAR(300) NOT NULL,
-        username CHAR(20) NOT NULL,
+        username CHAR(30) NOT NULL,
         added TIMESTAMP DEFAULT NOW()
       )
     `);
